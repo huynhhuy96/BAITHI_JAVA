@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HWBrowser</string>
+    <string name="action_settings">Settings</string>
+        <string name="btnBack">Go Back ⇦</string>
+      <string name="btnGo">Go</string>
+   <string name="btnForward">Go forward ⇨</string>
+    <string name="txtinputUrl"> http:// </string>
+    <string name="btnHome">Go home  ♖ </string>
+     <string name="btnLove">Save as page ☆ </string>
+     <string name="btnrefresh">Refresh ↺ </string>
+     <string name="btnmenu">┇ </string>
+    
+</resources>

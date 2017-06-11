@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/duongvien_background" >
+
+        <Button
+            android:id="@+id/btnmenu"
+            android:layout_width="25dp"
+            android:layout_height="40dp"
+            android:background="@drawable/duongvien_goctron"
+            android:text="@string/btnmenu" />
+
+        <EditText
+            android:id="@+id/txtinputUrl"
+            android:layout_width="252dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/css_input"
+            android:ems="10"
+            android:inputType="textUri"
+            android:text="@string/txtinputUrl" />
+
+        <Button
+            android:id="@+id/Go"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/css_input"
+            android:text="@string/btnGo" />
+    </TableRow>
+
+    <WebView
+        android:id="@+id/manView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
