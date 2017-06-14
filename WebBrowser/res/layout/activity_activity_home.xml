@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+   
     tools:context=".ActivityHome" >
 
     <TableRow
@@ -13,37 +14,49 @@
         android:background="@drawable/duongvien_background" >
 
         <Button
-            android:id="@+id/btnmenuHome"
+            android:id="@+id/btnmenusub1"
             android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:background="@drawable/duongvien_background"
             android:text="@string/btnmenu" />
 
-        <EditText
-            android:id="@+id/inputUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/css_input"
-            android:ems="10"
-            android:hint="@string/hinttext"
-            android:inputType="textUri" >
+        <Button
+            android:id="@+id/btnurl"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/css_homebtn"
+            android:text="@string/url" />
 
-            <requestFocus />
-        </EditText>
+        <Button
+            android:id="@+id/btnsearch"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/css_homebtn"
+            android:text="@string/search" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:background="@drawable/css_homebtn"
+            android:gravity="center"
+            android:text="@string/help" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginTop="20dp" >
+        android:layout_height="130dp"
+        android:layout_marginBottom="45dp"
+   
+        android:layout_marginTop="25dp" >
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/logo"
             android:src="@drawable/iconapp" />
     </TableRow>
@@ -51,95 +64,90 @@
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/duongvien_goctron"
+        android:layout_height="38dp"
+        android:layout_marginBottom="15dp"
+
         android:gravity="center" >
 
         <Button
+            android:id="@+id/btnZ"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/zing" />
+
+        <Button
             android:id="@+id/btnFB"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:background="@drawable/facebook"
             android:text="" />
 
         <Button
             android:id="@+id/btnTW"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/twi"
-            android:text="" />
-
-        <Button
-            android:id="@+id/btnZ"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/zing"
             android:text="" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow6"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/duongvien_goctron"
+        android:layout_height="38dp"
+        android:layout_marginBottom="15dp"
+
         android:gravity="center" >
 
         <Button
-            android:id="@+id/btnGame4"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/vnexpress" />
-
-        <Button
             android:id="@+id/itnew"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:background="@drawable/itnew" />
 
         <Button
             android:id="@+id/btn24h"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/bao24h"
-            android:text="" />
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bao24h" />
+
+        <Button
+            android:id="@+id/btnGame4"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/vnexpress" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow10"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-         android:background="@drawable/duongvien_goctron"
+        android:layout_height="38dp"
+       
         android:gravity="center" >
 
         <Button
             android:id="@+id/btnVnexpress"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:background="@drawable/game"
             android:contentDescription="" />
 
         <Button
             android:id="@+id/btnYoutube"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/youtube"
-            android:contentDescription=""
-            android:text="" />
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/youtube" />
 
         <Button
             android:id="@+id/btngag"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/gag9"
-            android:contentDescription=""
-            android:text="" />
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/gag9" />
     </TableRow>
 
 </LinearLayout>

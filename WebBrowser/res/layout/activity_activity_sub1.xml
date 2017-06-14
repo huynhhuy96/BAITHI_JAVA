@@ -4,47 +4,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".ActivitySub1" >
 
     <TableRow
-        android:id="@+id/tableRow2"
+        android:id="@+id/tableRow3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/duongvien_background"
-        android:baselineAligned="false" >
+        android:background="@drawable/duongvien_background" >
 
         <Button
-            android:id="@+id/btnmenu"
+            android:id="@+id/btnmenusub1"
             android:layout_width="25dp"
-            android:layout_height="40dp"
-            android:background="@drawable/duongvien_goctron"
+            android:layout_height="wrap_content"
+            android:background="@drawable/duongvien_background"
             android:text="@string/btnmenu" />
 
         <EditText
-            android:id="@+id/txtinputUrl"
+            android:id="@+id/inputUrlsub1"
             android:layout_width="262dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="1dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginRight="2dp"
             android:background="@drawable/css_input"
             android:ems="10"
-            android:inputType="textUri"
-        
-            android:text="@string/txtinputUrl" />
+            android:inputType="textUri" >
 
+            <requestFocus />
+        </EditText>
+        
         <Button
-            android:id="@+id/btnpd"
+            android:id="@+id/btnpagedu"
             android:layout_width="25dp"
             android:layout_height="40dp"
-            android:layout_marginRight="2dp"
             android:background="@drawable/duongvien_goctron"
             android:text="@string/pd" />
-
     </TableRow>
 
     <WebView
-        android:id="@+id/manView"
+        android:id="@+id/mainViewsub1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

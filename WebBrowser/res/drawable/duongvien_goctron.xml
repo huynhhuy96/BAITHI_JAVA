@@ -15,9 +15,9 @@
     <!-- các thuộc tính căn chỉnh -->
     <padding
         android:bottom="8dp"
-        android:left="9dp"
+        android:left="8dp"
         android:right="8dp"
-        android:top="9dp" >
+        android:top="8dp" >
     </padding>
 
    

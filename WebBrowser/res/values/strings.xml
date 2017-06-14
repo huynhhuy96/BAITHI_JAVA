@@ -18,5 +18,10 @@
     <string name="mxh">Mạng xã hội</string>
     <string name="tt">Tin tức</string>
     <string name="gt">Giải trí</string>
+    <string name="pd">↓</string>
+    <string name="title_activity_activity_sub1">ActivitySub1</string>
+    <string name="url">URL</string>
+    <string name="search">Search</string>
+    <string name="help">Help</string>
 
 </resources>

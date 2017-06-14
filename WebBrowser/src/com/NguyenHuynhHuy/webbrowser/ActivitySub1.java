@@ -14,10 +14,7 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
-@SuppressLint("NewApi")
-public class MainActivity extends Activity {
-
-	// Variable
+public class ActivitySub1 extends Activity {
 
 	public EditText inputUrl;
 	public WebView mainView;
@@ -26,20 +23,31 @@ public class MainActivity extends Activity {
 
 	public void getElements() {
 
-		inputUrl = (EditText) findViewById(R.id.txtinputUrl);
-		mainView = (WebView) findViewById(R.id.manView);
-		btnmenu = (Button) findViewById(R.id.btnmenu);
-		btnpd = (Button) findViewById(R.id.btnpd);
-		
+		inputUrl = (EditText) findViewById(R.id.inputUrlsub1);
+		mainView = (WebView) findViewById(R.id.mainViewsub1);
+		btnmenu = (Button) findViewById(R.id.btnmenusub1);
+		btnpd = (Button) findViewById(R.id.btnpagedu);
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_activity_sub1);
 		getElements();
+
+		Intent intent = getIntent();
+		String url = intent.getStringExtra("url").toString();
+		inputUrl.getText().clear();
+		inputUrl.setText(url);
+
+		mainView.getSettings().setLoadsImagesAutomatically(true);
+		mainView.getSettings().setJavaScriptEnabled(true);
+		mainView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+		mainView.loadUrl(url);
+
 		mainView.setWebViewClient(new myBrowser());
 		btnmenu.setOnClickListener(new View.OnClickListener() {
+			@SuppressLint("NewApi")
 			@Override
 			public void onClick(View view) {
 				// Khởi tạo 1 popupmenu
@@ -55,7 +63,7 @@ public class MainActivity extends Activity {
 							public boolean onMenuItemClick(MenuItem menuItem) {
 								if (menuItem.getItemId() == R.id.item1) {
 									Toast.makeText(
-											MainActivity.this,
+											ActivitySub1.this,
 											"Please wait when system is executioning : "
 													+ menuItem.getTitle(),
 											Toast.LENGTH_SHORT).show();
@@ -63,7 +71,7 @@ public class MainActivity extends Activity {
 								}
 								if (menuItem.getItemId() == R.id.item2) {
 									Toast.makeText(
-											MainActivity.this,
+											ActivitySub1.this,
 											"Please wait when system is executioning : "
 													+ menuItem.getTitle(),
 											Toast.LENGTH_SHORT).show();
@@ -71,7 +79,7 @@ public class MainActivity extends Activity {
 								}
 								if (menuItem.getItemId() == R.id.item3) {
 									Toast.makeText(
-											MainActivity.this,
+											ActivitySub1.this,
 											"Please wait when system is executioning : "
 													+ menuItem.getTitle(),
 											Toast.LENGTH_SHORT).show();
@@ -81,24 +89,23 @@ public class MainActivity extends Activity {
 
 								if (menuItem.getItemId() == R.id.item5) {
 									Toast.makeText(
-											MainActivity.this,
+											ActivitySub1.this,
 											"Please wait when system is executioning : "
 													+ menuItem.getTitle(),
 											Toast.LENGTH_SHORT).show();
 									// to do some thing here!
 									Intent intent = new Intent(
-											MainActivity.this,
+											ActivitySub1.this,
 											ActivityHome.class);
 									startActivity(intent);
 								}
 
 								if (menuItem.getItemId() == R.id.item4) {
 									Toast.makeText(
-											MainActivity.this,
+											ActivitySub1.this,
 											"Please wait when system is executioning : "
 													+ menuItem.getTitle(),
 											Toast.LENGTH_SHORT).show();
-									inputUrl.getText().toString();
 									showUrl();
 								}
 
@@ -108,49 +115,44 @@ public class MainActivity extends Activity {
 				popupMenu.show();
 			}
 		});
-		
+
 		btnpd.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
-				if(btnpd.getText()=="↓")
-				{
+				if (btnpd.getText() == "↓") {
 					mainView.pageDown(true);
 					btnpd.setText("↑");
-				}
-				else
-				{
+				} else {
 					mainView.pageUp(true);
 					btnpd.setText("↓");
 				}
-				
-				
-				
+
 			}
 		});
-		
 
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.activity_sub1, menu);
 		return true;
 	}
 
-	// Method Get Url from home activity
-	private String getinputUrl() {
-
-		String url = inputUrl.getText().toString().trim();
+	public String geturlfromhome() {
+		Intent intent = getIntent();
+		String url = intent.getStringExtra("url").toString();
+		inputUrl.getText().clear();
+		inputUrl.setText(url);
 		return url;
 	}
 
-	
 	// Method Show web from url input
 	@SuppressLint("SetJavaScriptEnabled")
 	private void showUrl() {
 		String url = inputUrl.getText().toString().trim();
+
 		mainView.getSettings().setLoadsImagesAutomatically(true);
 		mainView.getSettings().setJavaScriptEnabled(true);
 		mainView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
