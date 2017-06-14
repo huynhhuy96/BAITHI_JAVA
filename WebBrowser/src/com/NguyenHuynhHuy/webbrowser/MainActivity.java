@@ -3,7 +3,7 @@ package com.NguyenHuynhHuy.webbrowser;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.test.suitebuilder.annotation.SmallTest;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,14 +18,13 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 	// Variable
-	public Button btnGo;
+
 	public EditText inputUrl;
 	public WebView mainView;
-
 	public Button btnmenu;
 
 	public void getElements() {
-		btnGo = (Button) findViewById(R.id.Go);
+
 		inputUrl = (EditText) findViewById(R.id.txtinputUrl);
 		mainView = (WebView) findViewById(R.id.manView);
 		btnmenu = (Button) findViewById(R.id.btnmenu);
@@ -37,15 +36,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		getElements();
 		mainView.setWebViewClient(new myBrowser());
-		btnGo.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				showUrl();
-
-			}
-		});
-
-				
 		btnmenu.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -60,29 +50,54 @@ public class MainActivity extends Activity {
 						.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 							@Override
 							public boolean onMenuItemClick(MenuItem menuItem) {
-								if(menuItem.getItemId()==R.id.item1)
-								{
-									Toast.makeText(MainActivity.this,
-											"Please wait when system is executioning : " + menuItem.getTitle(),
+								if (menuItem.getItemId() == R.id.item1) {
+									Toast.makeText(
+											MainActivity.this,
+											"Please wait when system is executioning : "
+													+ menuItem.getTitle(),
 											Toast.LENGTH_SHORT).show();
 									backUrl();
 								}
-								if(menuItem.getItemId()==R.id.item2)
-								{
-									Toast.makeText(MainActivity.this,
-											"Please wait when system is executioning : " + menuItem.getTitle(),
+								if (menuItem.getItemId() == R.id.item2) {
+									Toast.makeText(
+											MainActivity.this,
+											"Please wait when system is executioning : "
+													+ menuItem.getTitle(),
 											Toast.LENGTH_SHORT).show();
 									forwardUrl();
 								}
-								if(menuItem.getItemId()==R.id.item3)
-								{
-									Toast.makeText(MainActivity.this,
-											"Please wait when system is executioning : " + menuItem.getTitle(),
+								if (menuItem.getItemId() == R.id.item3) {
+									Toast.makeText(
+											MainActivity.this,
+											"Please wait when system is executioning : "
+													+ menuItem.getTitle(),
 											Toast.LENGTH_SHORT).show();
 									refresh();
+
 								}
-								
-								
+
+								if (menuItem.getItemId() == R.id.item5) {
+									Toast.makeText(
+											MainActivity.this,
+											"Please wait when system is executioning : "
+													+ menuItem.getTitle(),
+											Toast.LENGTH_SHORT).show();
+									// to do some thing here!
+									Intent intent = new Intent(
+											MainActivity.this,
+											ActivityHome.class);
+									startActivity(intent);
+								}
+
+								if (menuItem.getItemId() == R.id.item4) {
+									Toast.makeText(
+											MainActivity.this,
+											"Please wait when system is executioning : "
+													+ menuItem.getTitle(),
+											Toast.LENGTH_SHORT).show();
+									showUrl();
+								}
+
 								return true;
 							}
 						});
@@ -99,16 +114,24 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
-	// Method Get Url from inputUrl
+	// Method Get Url from home activity
 	private String getinputUrl() {
-		inputUrl = (EditText) findViewById(R.id.txtinputUrl);
-		String Url = inputUrl.getText().toString().trim();
-		return Url;
+
+		String url = inputUrl.getText().toString().trim();
+		return url;
+	}
+
+	public String geturlfromhome() {
+		Intent intent = getIntent();
+		Bundle bundle = intent.getBundleExtra("url");
+		String url = "http://" + bundle.getString("url");
+		return url;
 	}
 
 	// Method Show web from url input
+	@SuppressLint("SetJavaScriptEnabled")
 	private void showUrl() {
-		String url = getinputUrl();
+		String url = inputUrl.getText().toString().trim();
 		mainView.getSettings().setLoadsImagesAutomatically(true);
 		mainView.getSettings().setJavaScriptEnabled(true);
 		mainView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
@@ -118,11 +141,13 @@ public class MainActivity extends Activity {
 	// Method for btnback
 	private void backUrl() {
 		mainView.goBack();
+		inputUrl.setText(mainView.getUrl());
 	}
 
 	// Method for forwark
 	private void forwardUrl() {
 		mainView.goForward();
+		inputUrl.setText(mainView.getUrl());
 	}
 
 	private void refresh() {
